@@ -2,7 +2,10 @@ module ActiveMerchant #:nodoc:
   module Billing #:nodoc:
     module Integrations #:nodoc:
       
-      # Documentation: http://www.rbkmoney.ru/varianty-podklyucheniya
+      # Documentation: 
+      # * http://www.rbkmoney.ru/varianty-podklyucheniya
+      # * http://www.rbkmoney.ru/manual
+      
       module RbkMoney
         autoload :Helper, File.dirname(__FILE__) + '/rbk_money/helper.rb'
         autoload :Notification, File.dirname(__FILE__) + '/rbk_money/notification.rb'
