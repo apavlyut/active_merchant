@@ -9,14 +9,14 @@ module ActiveMerchant #:nodoc:
       module RbkMoney
         autoload :Helper, File.dirname(__FILE__) + '/rbk_money/helper.rb'
         autoload :Notification, File.dirname(__FILE__) + '/rbk_money/notification.rb'
-        autoload :Return, File.dirname(__FILE__) + '/rbk_money/return.rb'
+        # autoload :Return, File.dirname(__FILE__) + '/rbk_money/return.rb'
      
         mattr_accessor :service_url
         self.service_url = 'https://rbkmoney.ru/acceptpurchase.aspx'
-
+        
+        mattr_accessor :eshopId
         mattr_accessor :signature_parameter_name
         self.signature_parameter_name = 'SignatureValue'
-
 
         def self.helper(order, account, options = {})
           Helper.new(order, account, options)

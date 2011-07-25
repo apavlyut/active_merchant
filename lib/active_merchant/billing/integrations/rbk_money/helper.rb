@@ -3,30 +3,24 @@ module ActiveMerchant #:nodoc:
     module Integrations #:nodoc:
       module RbkMoney
         class Helper < ActiveMerchant::Billing::Integrations::Helper
-          # Replace with the real mapping
-          mapping :account, ''
-          mapping :amount, ''
-        
-          mapping :order, ''
-
-          mapping :customer, :first_name => '',
-                             :last_name  => '',
-                             :email      => '',
-                             :phone      => ''
-
-          mapping :billing_address, :city     => '',
-                                    :address1 => '',
-                                    :address2 => '',
-                                    :state    => '',
-                                    :zip      => '',
-                                    :country  => ''
-
-          mapping :notify_url, ''
-          mapping :return_url, ''
-          mapping :cancel_return_url, ''
-          mapping :description, ''
-          mapping :tax, ''
-          mapping :shipping, ''
+          
+          def initialize(order, account, options = {})
+            super
+          end
+          
+          mapping :account, 'eshopId'
+          mapping :amount, 'recipientAmount'
+          mapping :currency, 'recipientCurrency'
+          mapping :order, 'orderId'
+          mapping :preference, 'preference'
+          
+          mapping :return_url, 'successUrl'
+          mapping :cancel_return_url, 'failUrl'
+          
+          mapping :first_name, 'user_email'
+          mapping :email, 'user_email'
+          mapping :payment_method, 'userField_1'
+          mapping :gateway_code, 'userField_2'
         end
       end
     end
